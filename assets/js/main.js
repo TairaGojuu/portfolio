@@ -8,6 +8,16 @@
     els.forEach(function (el) { io.observe(el); });
   } else els.forEach(function (el) { el.classList.add('in'); });
 
+  var panel = document.getElementById('info');
+  if (panel) {
+    var setP = function (on) { panel.hidden = !on; document.body.classList.toggle('lock', on); };
+    document.querySelectorAll('.info-open').forEach(function (a) { a.addEventListener('click', function (ev) { ev.preventDefault(); setP(true); }); });
+    panel.querySelector('.panel-x').addEventListener('click', function () { setP(false); if (location.hash === '#info') history.replaceState(null, '', location.pathname); });
+    panel.addEventListener('click', function (ev) { if (ev.target.tagName === 'A') setP(false); });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !panel.hidden) setP(false); });
+    if (location.hash === '#info') setP(true);
+  }
+
   var imgs = Array.prototype.slice.call(document.querySelectorAll('img[data-full]'));
   var lb = document.querySelector('.lb');
   if (!lb || !imgs.length) return;
