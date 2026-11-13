@@ -25,10 +25,10 @@ main{padding:0 var(--pad)}
 .status{color:var(--soft);font-size:clamp(15px,1.25vw,18px);max-width:34ch}
 .more{display:inline-block;margin-top:18px;font:500 14px Jost;letter-spacing:.08em;text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:2px}
 .more:hover{color:var(--red)}
-.collage{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(36px,6vw,90px) clamp(14px,2.4vw,34px);align-items:start;max-width:1500px;margin:0 auto;padding-bottom:clamp(70px,10vw,140px)}
-.card{grid-column:span var(--s);margin-top:var(--o);text-decoration:none;display:block}
+.collage{display:flex;flex-direction:column;gap:clamp(44px,6vw,90px);max-width:1500px;margin:0 auto;padding-bottom:clamp(70px,10vw,140px)}
+.card{display:block;text-decoration:none}
 .thumb{overflow:hidden;border-radius:var(--r);background:#dcdcd8}
-.thumb img{width:100%;height:auto;transition:transform .7s ease}
+.thumb img{width:100%;height:auto;max-height:82vh;object-fit:contain;transition:transform .7s ease}
 .card:hover .thumb img{transform:scale(1.035)}
 .cap{margin-top:12px;font-size:14px;line-height:1.45;max-width:52ch}
 .cap b{font-weight:500}
@@ -95,7 +95,7 @@ figcaption{font-size:13px;color:var(--soft);margin-top:8px}
 @media (max-width:760px){
  body{font-size:15.5px}
  .intro{grid-template-columns:1fr;align-items:start}.logo small{display:none}.top nav a{padding:8px 11px;font-size:13px}.top nav a:nth-child(3){display:none}
- .collage{grid-template-columns:1fr;gap:34px}.card{grid-column:1;margin-top:0}
+ .collage{gap:36px}.thumb img{max-height:none}
  .cols,.pinfo,.p-cols{grid-template-columns:1fr;gap:28px}
  .gallery{gap:16px}.g.half,.g.third{grid-column:span 6}.g.narrow{grid-column:1/-1}
  .pn{flex-direction:column}
